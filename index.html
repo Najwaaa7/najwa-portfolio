@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+
+    <!-- Apply the saved theme before paint (dark is the default) to avoid a flash -->
+    <script>
+      try {
+        if (localStorage.getItem('najwa-theme') !== 'light') {
+          document.documentElement.classList.add('dark')
+        }
+      } catch (e) {
+        document.documentElement.classList.add('dark')
+      }
+    </script>
+
+    <!-- SEO -->
+    <title>Najwa Almutairi | Operational Excellence, PMO &amp; Change Management</title>
+    <meta
+      name="description"
+      content="An interactive portfolio showcasing Najwa Almutairi's work across project coordination, communication, operational excellence, change management and digital enablement."
+    />
+
+    <!-- Open Graph / LinkedIn sharing preview -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Najwa Almutairi | Operational Excellence, PMO &amp; Change Management" />
+    <meta
+      property="og:description"
+      content="An interactive portfolio showcasing Najwa Almutairi's work across project coordination, communication, operational excellence, change management and digital enablement."
+    />
+    <meta property="og:image" content="./images/profile/og-preview.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <!-- Fonts: Manrope (display) + Inter (body) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Apply saved theme before first paint to avoid a flash -->
+    <script>
+      try {
+        if (localStorage.getItem('najwa-theme') === 'dark') {
+          document.documentElement.classList.add('dark')
+        }
+      } catch (e) {}
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>

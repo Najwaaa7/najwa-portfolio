@@ -1,0 +1,78 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply font-body bg-white text-ink antialiased transition-colors duration-500;
+  }
+
+  .dark body {
+    @apply bg-night text-frost;
+  }
+
+  ::selection {
+    @apply bg-brand-soft/60 text-ink;
+  }
+
+  /* Visible, accessible focus states */
+  a:focus-visible,
+  button:focus-visible,
+  [tabindex]:focus-visible {
+    @apply outline-none ring-2 ring-brand-vibrant ring-offset-2 ring-offset-white dark:ring-accent dark:ring-offset-night rounded-lg;
+  }
+}
+
+@layer components {
+  .section-shell {
+    @apply mx-auto w-full max-w-6xl px-5 sm:px-8;
+  }
+
+  /* Soft dotted background detail */
+  .dotted-bg {
+    background-image: radial-gradient(rgba(108, 43, 217, 0.1) 1px, transparent 1px);
+    background-size: 22px 22px;
+  }
+
+  .dark .dotted-bg {
+    background-image: radial-gradient(rgba(168, 85, 247, 0.14) 1px, transparent 1px);
+  }
+
+  /* Organic portrait mask */
+  .blob-mask {
+    border-radius: 58% 42% 46% 54% / 52% 47% 53% 48%;
+    overflow: hidden;
+  }
+
+  /* Animated underline highlight for key phrases */
+  .highlight-phrase {
+    @apply relative font-semibold text-brand dark:text-accent-soft whitespace-nowrap;
+  }
+
+  .highlight-phrase::after {
+    content: '';
+    @apply absolute -bottom-0.5 left-0 h-[3px] w-full rounded-full bg-grad-vibrant origin-left scale-x-0 transition-transform duration-700 ease-out;
+  }
+
+  .in-view .highlight-phrase::after {
+    @apply scale-x-100;
+  }
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
